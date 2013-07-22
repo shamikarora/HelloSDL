@@ -1,4 +1,4 @@
 HelloSDL
 ========
 
-World changing game
+World changing game. Damn straight.
