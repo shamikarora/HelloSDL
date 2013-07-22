@@ -1,4 +1,7 @@
 #include "SDL.H"
+#include <string>
+
+using namespace std:string;
 
 int main(int argc, char* args[])
 {
