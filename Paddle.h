@@ -1,28 +1,36 @@
 #pragma once
 
-#include "Sprite.h"
+#include "MoveableSprite.h"
 #include <iostream>
 
 namespace PaddleGame
 {
-	class Paddle : public Sprite
+	class Paddle : public MoveableSprite
 	{
 	
 	protected:
+
+		MoveableSprite * moveSprite;
 
 	public:
 		Paddle(std::string imageFileName)
 		{
 			renderImage = new RenderImage(imageFileName);
 			renderImage->LoadImage();
+			moveSprite = new MoveableSprite();
 		}
 
-		void Move();
-		void Display(int, int,SDL_Surface*);
+		virtual void HandleInput(SDL_Event&);
+		virtual void Move();
+		virtual void Display(int, int,SDL_Surface*);
 
+		int CurrentPosX();
+		int CurrentPosY();
+		
 		~Paddle()
 		{
 			delete renderImage;
+			delete moveSprite;
 		}
 	};
 }

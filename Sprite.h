@@ -9,6 +9,9 @@ namespace PaddleGame
 			RenderImage *renderImage;
 
 		public:
+			//Handle input
+			virtual void HandleInput(SDL_Event&) = 0;
+
 			//Sprite can move or be stationary
 			virtual void Move() = 0;
 

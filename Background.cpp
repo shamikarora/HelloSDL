@@ -12,6 +12,11 @@ namespace PaddleGame
 
 	void Background::Move()
 	{
+		
+	}
+
+	void Background::HandleInput(SDL_Event &event)
+	{
 	
 	}
 }

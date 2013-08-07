@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Sprite.h"
+#include "StationarySprite.h"
 #include <iostream>
 
 namespace PaddleGame
 {
-	class Background : public Sprite
+	class Background : public StationarySprite
 	{
 	
 	protected:
@@ -17,8 +17,9 @@ namespace PaddleGame
 			renderImage->LoadImage();
 		}
 
-		void Move();
-		void Display(int, int,SDL_Surface*);
+		virtual void HandleInput(SDL_Event&);
+		virtual void Move();
+		virtual void Display(int, int,SDL_Surface*);
 
 		~Background()
 		{
