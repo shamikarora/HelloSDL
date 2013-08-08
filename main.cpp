@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 		//while there are events to handle
 		while(SDL_PollEvent(&event))
 		{
-			paddle1->HandleInput(event);
+			paddle1->HandleInput(&event);
 
 			//If the user has Xed out the window
             if( event.type == SDL_QUIT )
@@ -56,6 +56,7 @@ int main(int argc, char* argv[])
 		//Move the paddle
 		paddle1->Move();
 
+		background->Display(0,0,screen);
 		//SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ) );
 
 		//Show the paddle

@@ -10,13 +10,13 @@ namespace PaddleGame
 		renderImage->ApplyImage(x,y,loadedImage,destination);
 	}
 
-	void Paddle::HandleInput(SDL_Event &event)
+	void Paddle::HandleInput(SDL_Event *event)
 	{
 		//If a key was pressed
-		if( event.type == SDL_KEYDOWN )
+		if( event->type == SDL_KEYDOWN )
 		{
 			//Adjust the velocity
-			switch( event.key.keysym.sym )
+			switch( event->key.keysym.sym )
 			{
 				case SDLK_UP: yVel -= PADDLE_HEIGHT / 2; break;
 				case SDLK_DOWN: yVel += PADDLE_HEIGHT / 2; break;
@@ -25,10 +25,10 @@ namespace PaddleGame
 			}
 		}
 		//If a key was released
-		else if( event.type == SDL_KEYUP )
+		else if( event->type == SDL_KEYUP )
 		{
 			//Adjust the velocity
-			switch( event.key.keysym.sym )
+			switch( event->key.keysym.sym )
 			{
 				case SDLK_UP: yVel += PADDLE_HEIGHT / 2; break;
 				case SDLK_DOWN: yVel -= PADDLE_HEIGHT / 2; break;
@@ -63,11 +63,11 @@ namespace PaddleGame
 
 	int Paddle::CurrentPosX()
 	{
-		return moveSprite->GetXPosition();
+		return x;
 	}
 
 	int Paddle::CurrentPosY()
 	{
-		return moveSprite->GetYPosition();
+		return y;
 	}
 }

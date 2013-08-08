@@ -9,7 +9,6 @@ namespace PaddleGame
 	{
 	
 	protected:
-
 		MoveableSprite * moveSprite;
 
 	public:
@@ -20,7 +19,7 @@ namespace PaddleGame
 			moveSprite = new MoveableSprite();
 		}
 
-		virtual void HandleInput(SDL_Event&);
+		virtual void HandleInput(SDL_Event *);
 		virtual void Move();
 		virtual void Display(int, int,SDL_Surface*);
 

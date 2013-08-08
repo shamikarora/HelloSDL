@@ -15,7 +15,7 @@ namespace PaddleGame
 		
 	}
 
-	void Background::HandleInput(SDL_Event &event)
+	void Background::HandleInput(SDL_Event *)
 	{
 	
 	}

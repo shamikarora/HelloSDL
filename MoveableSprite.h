@@ -28,7 +28,7 @@ namespace PaddleGame
 
 		virtual void Move() {}
 		virtual void Display(int, int, SDL_Surface*) {}
-		virtual void HandleInput(SDL_Event &event) {}
+		virtual void HandleInput(SDL_Event *) {}
 
 		int GetXPosition()
 		{
