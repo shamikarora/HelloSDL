@@ -18,8 +18,7 @@ namespace PaddleGame
 		}
 
 		virtual void HandleInput(SDL_Event *);
-		virtual void Move();
-		virtual void Display(int, int,SDL_Surface*);
+		virtual void Display(SDL_Surface*);
 
 		~Background()
 		{

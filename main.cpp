@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
 	Paddle *paddle1 = new Paddle("Resources/paddle.bmp");
 	Paddle *paddle2 = new Paddle("Resources/paddle.bmp");
 	Background *background = new Background("Resources/gameBackground.bmp");
-	background->Display(0,0,screen);
+	background->Display(screen);
 	
 	Timer frameRateRegulator;
 	SDL_Event event;
@@ -56,11 +56,11 @@ int main(int argc, char* argv[])
 		//Move the paddle
 		paddle1->Move();
 
-		background->Display(0,0,screen);
-		//SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ) );
-
+		//Display the background
+		background->Display(screen);
+		
 		//Show the paddle
-		paddle1->Display(paddle1->CurrentPosX(), paddle1->CurrentPosY(), screen);
+		paddle1->Display(screen);
 
 		//Update the screen
         if( SDL_Flip( screen ) == -1 )
@@ -69,13 +69,12 @@ int main(int argc, char* argv[])
         }
 
         //Cap the frame rate
-      
-  if( frameRateRegulator.get_ticks() < 1000 / FRAMES_PER_SECOND )
-        {
-            SDL_Delay( ( 1000 / FRAMES_PER_SECOND ) - 
-frameRateRegulator.get_ticks() );
-        }
-	}
+		if( frameRateRegulator.get_ticks() < 1000 / FRAMES_PER_SECOND )
+			{
+				SDL_Delay( ( 1000 / FRAMES_PER_SECOND ) - 
+				frameRateRegulator.get_ticks() );
+			}
+		}
 	
 	//Quit game
 	EndGame();

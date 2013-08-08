@@ -3,7 +3,7 @@
 
 namespace PaddleGame
 {
-	void Paddle::Display(int x, int y, SDL_Surface* destination)
+	void Paddle::Display(SDL_Surface* destination)
 	{
 		SDL_Surface* loadedImage = renderImage->GetImage();
 
@@ -59,15 +59,5 @@ namespace PaddleGame
 			//move back
 			y -= yVel;
 		}
-	}
-
-	int Paddle::CurrentPosX()
-	{
-		return x;
-	}
-
-	int Paddle::CurrentPosY()
-	{
-		return y;
 	}
 }
