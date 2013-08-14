@@ -10,6 +10,26 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="MoveableSprite.h" />
+    <ClInclude Include="Paddle.h" />
+    <ClInclude Include="RenderImage.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="StationarySprite.h" />
+    <ClInclude Include="Timer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="Paddle.cpp" />
+    <ClCompile Include="RenderImage.cpp" />
+    <ClCompile Include="Timer.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9F407AD1-3B1F-4F8B-9640-98CE04C7A4B3}</ProjectGuid>
     <RootNamespace>Test</RootNamespace>
@@ -67,27 +87,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\Background.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\Game.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\GameEngine.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\Paddle.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\RenderImage.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\Timer.cpp" />
-    <ClCompile Include="init.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\Background.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\Constants.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\Game.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\GameEngine.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\MoveableSprite.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\Paddle.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\RenderImage.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\Sprite.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\StationarySprite.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\repo files\HelloSDL\Timer.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
