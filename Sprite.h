@@ -20,7 +20,7 @@ namespace PaddleGame
 
 			//Display a sprite at a particular position
 			virtual void Display(SDL_Surface*) = 0;
-					virtual void HandleInput(SDL_Event *) = 0;
+			virtual void HandleInput(SDL_Event *) = 0;
 
 			//Get the current x co-ordinate of the sprite
 			int GetXPosition()

@@ -41,7 +41,7 @@ namespace PaddleGame
 	void Paddle::Move()
 	{
 		//Move the dot left or right
-		x += xVel;
+				x += xVel;
 
 		//If the dot went too far to the left or right
 		if( ( x < 0 ) || ( x + PADDLE_WIDTH > SCREEN_WIDTH ) )

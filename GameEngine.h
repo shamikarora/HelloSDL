@@ -25,6 +25,8 @@ namespace PaddleGame
 			Paddle* paddle1;
 			Background* background;
 
+			//Handle frame rate of the gameplay
+			Timer fps;
 
 		private: 
 			bool Init();

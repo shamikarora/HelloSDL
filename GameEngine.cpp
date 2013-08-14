@@ -30,16 +30,15 @@ namespace PaddleGame
 
 	void GameEngine::HandleEvents(SDL_Event * event)
 	{
-		switch(event->type)
-		{
-			case SDL_QUIT: play = false;
-						   break;
-		}
+		paddle1->HandleInput(event);
+
+		if(event->type == SDL_QUIT)
+			play = false;
 	}
 
 	void GameEngine::GameLoop()
 	{
-		
+		paddle1->Move();
 	}
 
 	void GameEngine::Render()
@@ -63,6 +62,9 @@ namespace PaddleGame
 
 		while(play)
 		{
+			//Start the frame timer
+			fps.start();
+
 			while(SDL_PollEvent(&myEvent))
 			{
 				HandleEvents(&myEvent);
@@ -70,6 +72,12 @@ namespace PaddleGame
 
 			GameLoop();
 			Render();
+
+			//Cap the frame rate
+			if( fps.get_ticks() < 1000 / FRAMES_PER_SECOND )
+			{
+				SDL_Delay( ( 1000 / FRAMES_PER_SECOND ) - fps.get_ticks() );
+			}
 		}
 
 		CleanUp();
