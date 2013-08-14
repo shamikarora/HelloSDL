@@ -1,0 +1,17 @@
+#include "Background.h"
+#include "Constants.h"
+
+namespace PaddleGame
+{
+	void Background::Display(SDL_Surface* destination)
+	{
+		SDL_Surface* loadedImage = renderImage->GetImage();
+
+		renderImage->ApplyImage(x,y,loadedImage,destination);
+	}
+
+	void Background::HandleInput(SDL_Event *)
+	{
+	
+	}
+}

@@ -1,0 +1,28 @@
+#pragma once
+
+#include "StationarySprite.h"
+#include <iostream>
+
+namespace PaddleGame
+{
+	class Background : public StationarySprite
+	{
+	
+	protected:
+
+	public:
+		Background(std::string imageFileName)
+		{
+			renderImage = new RenderImage(imageFileName);
+			renderImage->LoadImage();
+		}
+
+		virtual void HandleInput(SDL_Event *);
+		virtual void Display(SDL_Surface*);
+
+		~Background()
+		{
+			delete renderImage;
+		}
+	};
+}
