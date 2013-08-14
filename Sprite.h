@@ -17,19 +17,10 @@ namespace PaddleGame
 			int yVel;
 
 		public:
-<<<<<<< HEAD
-			
-			//Handle input
-			virtual void HandleInput(SDL_Event *) = 0;
-
-			//Display a sprite at a particular position
-			virtual void Display(SDL_Surface*) = 0;
-=======
 
 			//Display a sprite at a particular position
 			virtual void Display(SDL_Surface*) = 0;
 					virtual void HandleInput(SDL_Event *) = 0;
->>>>>>> Crap
 
 			//Get the current x co-ordinate of the sprite
 			int GetXPosition()

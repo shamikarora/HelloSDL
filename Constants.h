@@ -1,8 +1,5 @@
 #pragma once
-<<<<<<< HEAD
-=======
 #include "SDL.h"
->>>>>>> Crap
 
 namespace PaddleGame
 {
