@@ -16,8 +16,13 @@ namespace PaddleGame
 			renderImage = new RenderImage(imageFileName);
 			renderImage->LoadImage();
 		}
+<<<<<<< HEAD
 
 		virtual void HandleInput(SDL_Event *);
+=======
+		
+		virtual void HandleInput(SDL_Event*);
+>>>>>>> Crap
 		virtual void Move();
 		virtual void Display(SDL_Surface*);
 
