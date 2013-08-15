@@ -40,21 +40,13 @@ namespace PaddleGame
 			//Controls for first paddle
 			case SDLK_w : paddle1->HandleInput(event);
 						  break;
-			case SDLK_a : paddle1->HandleInput(event);
-						  break;
 			case SDLK_s : paddle1->HandleInput(event);
-						  break;
-			case SDLK_d : paddle1->HandleInput(event);
 						  break;
 
 			//Controls for second paddle
 			case SDLK_UP : paddle2->HandleInput(event);
 						   break;
-			case SDLK_LEFT : paddle2->HandleInput(event);
-						   break;
 			case SDLK_DOWN : paddle2->HandleInput(event);
-						   break;
-	 	   case SDLK_RIGHT : paddle2->HandleInput(event);
 						   break;
 			}
 			break;
