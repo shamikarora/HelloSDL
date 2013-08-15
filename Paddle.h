@@ -11,11 +11,18 @@ namespace PaddleGame
 	protected:
 
 	public:
-		Paddle(std::string imageFileName)
+		Paddle(std::string imageFileName, int x = 0, int y = 0)
 		{
+			this->x = x;
+			this->y = y;
 			renderImage = new RenderImage(imageFileName);
 			renderImage->LoadImage();
 		}
+
+		void AdjustLeftVelocity();
+		void AdjustRightVelcity();
+		void AdjustUpwardVelocity();
+		void AdjustDownwardVelocity();
 
 		virtual void HandleInput(SDL_Event*);
 		virtual void Move();

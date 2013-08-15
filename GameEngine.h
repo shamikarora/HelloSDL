@@ -22,8 +22,8 @@ namespace PaddleGame
 			SDL_Event myEvent;
 
 			//Sprites
-			Paddle* paddle1;
-			Background* background;
+			Paddle *paddle1, *paddle2;
+			Background *background;
 
 			//Handle frame rate of the gameplay
 			Timer fps;

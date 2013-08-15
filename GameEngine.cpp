@@ -22,7 +22,8 @@ namespace PaddleGame
 		SDL_WM_SetCaption("PaddleGame", NULL);
 
 		//Load sprite images
-		paddle1 = new Paddle("Resources/paddle.bmp");
+		paddle1 = new Paddle("Resources/paddle.bmp",50,50);
+		paddle2 = new Paddle("Resources/paddle.bmp",SCREEN_WIDTH - (PADDLE_WIDTH + 50),50);
 		background = new Background("Resources/gameBackground.bmp");
 
 		return true;
@@ -30,21 +31,66 @@ namespace PaddleGame
 
 	void GameEngine::HandleEvents(SDL_Event * event)
 	{
-		paddle1->HandleInput(event);
+		switch(event->type)
+		{
 
-		if(event->type == SDL_QUIT)
-			play = false;
+		case SDL_KEYDOWN : 
+			switch(event->key.keysym.sym)
+			{
+			//Controls for first paddle
+			case SDLK_w : paddle1->HandleInput(event);
+						  break;
+			case SDLK_a : paddle1->HandleInput(event);
+						  break;
+			case SDLK_s : paddle1->HandleInput(event);
+						  break;
+			case SDLK_d : paddle1->HandleInput(event);
+						  break;
+
+			//Controls for second paddle
+			case SDLK_UP : paddle2->HandleInput(event);
+						   break;
+			case SDLK_LEFT : paddle2->HandleInput(event);
+						   break;
+			case SDLK_DOWN : paddle2->HandleInput(event);
+						   break;
+	 	   case SDLK_RIGHT : paddle2->HandleInput(event);
+						   break;
+			}
+			break;
+
+		case SDL_KEYUP : 
+			switch(event->key.keysym.sym)
+			{
+			//Controls for first paddle
+			case SDLK_w : paddle1->HandleInput(event);
+						  break;
+			case SDLK_s : paddle1->HandleInput(event);
+						  break;
+
+			//Controls for second paddle
+			case SDLK_UP : paddle2->HandleInput(event);
+						   break;
+			case SDLK_DOWN : paddle2->HandleInput(event);
+			}
+			break;
+		
+		case SDL_QUIT : play = false;
+						break;
+		}
 	}
 
 	void GameEngine::GameLoop()
 	{
 		paddle1->Move();
+		paddle2->Move();
 	}
 
 	void GameEngine::Render()
 	{
 		background->Display(screenDisplay);
 		paddle1->Display(screenDisplay);
+		paddle2->Display(screenDisplay);
 
 		SDL_Flip(screenDisplay);
 	}

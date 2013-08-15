@@ -18,10 +18,11 @@ namespace PaddleGame
 			//Adjust the velocity
 			switch( event->key.keysym.sym )
 			{
-				case SDLK_w: yVel -= PADDLE_HEIGHT / 2; break;
-				case SDLK_s: yVel += PADDLE_HEIGHT / 2; break;
-				case SDLK_a: xVel -= PADDLE_WIDTH / 2; break;
-				case SDLK_d: xVel += PADDLE_WIDTH / 2; break;
+				case SDLK_w: yVel -= UPWARD_VELOCITY; break;
+				case SDLK_s: yVel += DOWNWARD_VELOCITY; break;
+				
+				case SDLK_UP    : yVel -= UPWARD_VELOCITY; break;
+				case SDLK_DOWN  : yVel += DOWNWARD_VELOCITY; break;
 			}
 		}
 		//If a key was released
@@ -30,10 +31,11 @@ namespace PaddleGame
 			//Adjust the velocity
 			switch( event->key.keysym.sym )
 			{
-				case SDLK_w: yVel += PADDLE_HEIGHT / 2; break;
-				case SDLK_s: yVel -= PADDLE_HEIGHT / 2; break;
-				case SDLK_a: xVel += PADDLE_WIDTH / 2; break;
-				case SDLK_d: xVel -= PADDLE_WIDTH / 2; break;
+				case SDLK_w: yVel += UPWARD_VELOCITY; break;
+				case SDLK_s: yVel -= DOWNWARD_VELOCITY; break;
+
+				case SDLK_UP    : yVel += UPWARD_VELOCITY; break;
+				case SDLK_DOWN  : yVel -= DOWNWARD_VELOCITY; break;
 			}
 		}
 	}
@@ -44,20 +46,28 @@ namespace PaddleGame
 				x += xVel;
 
 		//If the dot went too far to the left or right
-		if( ( x < 0 ) || ( x + PADDLE_WIDTH > SCREEN_WIDTH ) )
+		if( ( x < 0 ) || ( (x + PADDLE_WIDTH) > SCREEN_WIDTH ) )
 		{
 			//move back
-			x -= xVel;
+			if(x < 0)
+				x = 0;
+
+			if(x + PADDLE_WIDTH > SCREEN_WIDTH)
+				x = SCREEN_WIDTH - PADDLE_WIDTH;
 		}
 
 		//Move the dot up or down
 		y += yVel;
 
 		//If the dot went too far up or down
-		if( ( y < 0 ) || ( y + PADDLE_HEIGHT > SCREEN_HEIGHT ) )
+		if( ( y < 0 ) || ( (y + PADDLE_HEIGHT) > SCREEN_HEIGHT ) )
 		{
 			//move back
-			y -= yVel;
+			if(y < 0)
+				y = 0;
+
+			if(y + PADDLE_HEIGHT > SCREEN_HEIGHT)
+				y = SCREEN_HEIGHT - PADDLE_HEIGHT;
 		}
 	}
 }
