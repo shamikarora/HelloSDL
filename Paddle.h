@@ -19,11 +19,6 @@ namespace PaddleGame
 			renderImage->LoadImage();
 		}
 
-		void AdjustLeftVelocity();
-		void AdjustRightVelcity();
-		void AdjustUpwardVelocity();
-		void AdjustDownwardVelocity();
-
 		virtual void HandleInput(SDL_Event*);
 		virtual void Move();
 		virtual void Display(SDL_Surface*);

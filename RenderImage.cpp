@@ -20,6 +20,15 @@ namespace PaddleGame
 
 				//Free the old image
 				SDL_FreeSurface(loadedImage);
+
+				if(optimizedImage != NULL)
+				{
+					//Map the color key
+					Uint32 colorKey = SDL_MapRGB(optimizedImage->format, 255, 255, 255);
+					
+					//Set the color key
+					SDL_SetColorKey(optimizedImage, SDL_SRCCOLORKEY, colorKey);
+				}
 			}
 
 			return optimizedImage;

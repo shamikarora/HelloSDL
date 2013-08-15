@@ -16,7 +16,7 @@ namespace PaddleGame
 			{
 				return gameEngine->Execute();
 			}
-			
+
 			~Game()
 			{
 				delete gameEngine;

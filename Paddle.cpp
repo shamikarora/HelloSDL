@@ -18,11 +18,11 @@ namespace PaddleGame
 			//Adjust the velocity
 			switch( event->key.keysym.sym )
 			{
-				case SDLK_w: yVel -= UPWARD_VELOCITY; break;
-				case SDLK_s: yVel += DOWNWARD_VELOCITY; break;
+				case SDLK_w: yVel -= PADDLE_SPEED; break;
+				case SDLK_s: yVel += PADDLE_SPEED; break;
 				
-				case SDLK_UP    : yVel -= UPWARD_VELOCITY; break;
-				case SDLK_DOWN  : yVel += DOWNWARD_VELOCITY; break;
+				case SDLK_UP    : yVel -= PADDLE_SPEED; break;
+				case SDLK_DOWN  : yVel += PADDLE_SPEED; break;
 			}
 		}
 		//If a key was released
@@ -31,11 +31,11 @@ namespace PaddleGame
 			//Adjust the velocity
 			switch( event->key.keysym.sym )
 			{
-				case SDLK_w: yVel += UPWARD_VELOCITY; break;
-				case SDLK_s: yVel -= DOWNWARD_VELOCITY; break;
+				case SDLK_w: yVel += PADDLE_SPEED; break;
+				case SDLK_s: yVel -= PADDLE_SPEED; break;
 
-				case SDLK_UP    : yVel += UPWARD_VELOCITY; break;
-				case SDLK_DOWN  : yVel -= DOWNWARD_VELOCITY; break;
+				case SDLK_UP    : yVel += PADDLE_SPEED; break;
+				case SDLK_DOWN  : yVel -= PADDLE_SPEED; break;
 			}
 		}
 	}
