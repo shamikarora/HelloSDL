@@ -13,7 +13,6 @@ namespace PaddleGame
 	{
 		x += xVel;
 		y += yVel;
-		std::cout<<x <<'\t'<< y <<std::endl;
 	}
 
 	void Ball::HandleCollisions()

@@ -26,7 +26,7 @@ namespace PaddleGame
 
 			//Assign a random direction everytime a ball is created
 			srand(time(0));
-			direction =(float) (rand() % 360 + 1);
+			direction =(float) (rand() % 360 + 30);
 
 			//Get the horizontal and vertical component of the ball velocity
 			xVel = BALL_SPEED * cos(direction);
