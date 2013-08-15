@@ -1,26 +1,36 @@
+CC = g++
+CFLAGS = -c
+
+INCLUDE_SDL_PATH = -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/
+INCLUDE_SDL_IMAGE_PATH = -I/Library/Frameworks/SDL_image.Framework/Versions/A/Headers/
+
+FRAMEWORKS = -framework SDL -framework Cocoa -framework SDL_image
+
+EXECUTABLE_NAME = SDLGame
+
 program: Game.o SDLMain.o GameEngine.o Background.o Paddle.o RenderImage.o Timer.o Ball.o
-	g++ Game.o SDLMain.o GameEngine.o Background.o Paddle.o RenderImage.o Timer.o Ball.o -o SDLGame -framework SDL -framework Cocoa -framework SDL_image
+	$(CC) Game.o SDLMain.o GameEngine.o Background.o Paddle.o RenderImage.o Timer.o Ball.o -o $(EXECUTABLE_NAME) $(FRAMEWORKS)
 
 Ball.o : Ball.h MoveableSprite.h Constants.h
-	g++ -c -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/ -I/Library/Frameworks/SDL_image.Framework/Versions/A/Headers/ Ball.cpp
+	$(CC) $(CFLAGS) $(INCLUDE_SDL_PATH) $(INCLUDE_SDL_IMAGE_PATH) Ball.cpp
 
 Game.o : Game.h GameEngine.h
-	g++ -c -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/ -I/Library/Frameworks/SDL_image.Framework/Versions/A/Headers/ Game.cpp
+	$(CC) $(CFLAGS) $(INCLUDE_SDL_PATH) $(INCLUDE_SDL_IMAGE_PATH) Game.cpp
 
 SDLMain.o :
-	g++ -c -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/ SDLMain.m
+	$(CC) $(CFLAGS) $(INCLUDE_SDL_PATH) SDLMain.m
 
 GameEngine.o : Paddle.h Background.h Constants.h Timer.h 
-	g++ -c -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/ -I/Library/Frameworks/SDL_image.Framework/Versions/A/Headers/ GameEngine.cpp
+	$(CC) $(CFLAGS) $(INCLUDE_SDL_PATH) $(INCLUDE_SDL_IMAGE_PATH) GameEngine.cpp
 
 Background.o : Background.h Constants.h StationarySprite.h
-	g++ -c -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/ -I/Library/Frameworks/SDL_image.Framework/Versions/A/Headers/ Background.cpp
+	$(CC) $(CFLAGS) $(INCLUDE_SDL_PATH) $(INCLUDE_SDL_IMAGE_PATH) Background.cpp
 
 Paddle.o : Paddle.h Constants.h MoveableSprite.h StationarySprite.h Timer.h RenderImage.h
-	g++ -c -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/ -I/Library/Frameworks/SDL_image.Framework/Versions/A/Headers/ Paddle.cpp
+	$(CC) $(CFLAGS) $(INCLUDE_SDL_PATH) $(INCLUDE_SDL_IMAGE_PATH) Paddle.cpp
 
 RenderImage.o : RenderImage.h
-	g++ -c -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/ -I/Library/Frameworks/SDL_image.Framework/Versions/A/Headers/ RenderImage.cpp
+	$(CC) $(CFLAGS) $(INCLUDE_SDL_PATH) $(INCLUDE_SDL_IMAGE_PATH) RenderImage.cpp
 
 Timer.o : Timer.h
-	g++ -c -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/ Timer.cpp
+	$(CC) $(CFLAGS) $(INCLUDE_SDL_PATH) Timer.cpp
