@@ -1,8 +1,11 @@
-SDLMain.o :
-	g++ -c SDLMain.m
+program: Game.o SDLMain.o GameEngine.o Background.o Paddle.o RenderImage.o Timer.o 
+	g++ Game.o SDLMain.o GameEngine.o Background.o Paddle.o RenderImage.o Timer.o -o SDLGame -framework SDL -framework Cocoa -framework SDL_image
 
 Game.o : Game.h GameEngine.h
 	g++ -c -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/ -I/Library/Frameworks/SDL_image.Framework/Versions/A/Headers/ Game.cpp
+
+SDLMain.o :
+	g++ -c -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/ SDLMain.m
 
 GameEngine.o : Paddle.h Background.h Constants.h Timer.h 
 	g++ -c -I/Library/Frameworks/SDL.Framework/Versions/A/Headers/ -I/Library/Frameworks/SDL_image.Framework/Versions/A/Headers/ GameEngine.cpp
