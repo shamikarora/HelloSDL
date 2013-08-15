@@ -7,24 +7,24 @@ namespace PaddleGame
 {
 	class RenderImage
 	{
-	protected:
-		std::string imageFileName;
+		protected:
+			std::string imageFileName;
 
-		//Optimized image that will be used
-		SDL_Surface* optimizedImage;
+			//Optimized image that will be used
+			SDL_Surface* optimizedImage;
 
-	public:
-		//Load an image
-		SDL_Surface* LoadImage();
+		public:
+			//Load an image
+			SDL_Surface* LoadImage();
 
-		//Get the loaded image
-		SDL_Surface* GetImage();
+			//Get the loaded image
+			SDL_Surface* GetImage();
 
-		//Apply an image on a surface
-		void ApplyImage(int x, int y,SDL_Surface * source, SDL_Surface * destination, SDL_Rect * clip = NULL);
+			//Apply an image on a surface
+			void ApplyImage(int x, int y,SDL_Surface * source, SDL_Surface * destination, SDL_Rect * clip = NULL);
 
-		RenderImage(std::string imageFileName) : imageFileName(imageFileName){}
+			RenderImage(std::string imageFileName) : imageFileName(imageFileName){}
 
-		~RenderImage(){}
+			~RenderImage(){}
 	};
 }
