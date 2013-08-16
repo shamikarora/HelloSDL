@@ -1,4 +1,7 @@
 #include "Ball.h"
+#include <iostream>
+
+using namespace std;
 
 namespace PaddleGame
 {
@@ -15,7 +18,7 @@ namespace PaddleGame
 		y += yVel;
 	}
 
-	void Ball::HandleCollisions()
+	void Ball::HandleCollisionWithScreen()
 	{
 		//Bounce the ball off the top/bottom screen
 		if(y <= 0 || (y+BALL_HEIGHT) >= SCREEN_HEIGHT)
@@ -30,5 +33,21 @@ namespace PaddleGame
 			xVel *= -1;
 			x += xVel;
 		}
+	}
+
+	void Ball::HandleCollisionWithPaddles(Paddle* paddleOne, Paddle* paddleTwo)
+	{
+		if ((((x - (paddleOne->GetXPosition() + PADDLE_WIDTH)) <= 1) && (y > paddleOne->GetYPosition()) && (y < (paddleOne->GetYPosition() + PADDLE_HEIGHT))) ||
+			(((paddleTwo->GetXPosition() - (x + BALL_WIDTH)) <= 1) && (y > paddleTwo->GetYPosition()) && (y < (paddleTwo->GetYPosition() + PADDLE_HEIGHT))))	
+		{
+			xVel *= -1;
+			x += xVel;
+		}
+	}
+
+	void Ball::HandleCollisionWrapper(Paddle* paddleOne, Paddle* paddleTwo)
+	{
+		Ball::HandleCollisionWithScreen();
+		Ball::HandleCollisionWithPaddles(paddleOne, paddleTwo);
 	}
 }

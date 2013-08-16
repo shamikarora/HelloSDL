@@ -82,7 +82,7 @@ namespace PaddleGame
 
 	void GameEngine::HandleCollisions()
 	{
-		ball->HandleCollisions();
+		ball->HandleCollisionWrapper(paddle1, paddle2);
 	}
 
 	void GameEngine::Render()

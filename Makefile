@@ -20,7 +20,7 @@ Game.o : Game.h GameEngine.h
 SDLMain.o :
 	$(CC) $(CFLAGS) $(INCLUDE_SDL_PATH) SDLMain.m
 
-GameEngine.o : Paddle.h Background.h Constants.h Timer.h 
+GameEngine.o : Paddle.h Background.h Constants.h Timer.h Ball.h
 	$(CC) $(CFLAGS) $(INCLUDE_SDL_PATH) $(INCLUDE_SDL_IMAGE_PATH) GameEngine.cpp
 
 Background.o : Background.h Constants.h StationarySprite.h
