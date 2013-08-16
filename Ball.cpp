@@ -1,5 +1,4 @@
 #include "Ball.h"
-#include <iostream>
 
 using namespace std;
 

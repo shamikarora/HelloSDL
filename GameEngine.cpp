@@ -24,7 +24,7 @@ namespace PaddleGame
 		//Load sprite images
 		paddle1 = new Paddle("Resources/paddle.bmp", 50, 50);
 		paddle2 = new Paddle("Resources/paddle.bmp",SCREEN_WIDTH - (PADDLE_WIDTH + 50), 50);
-		ball = new Ball("Resources/dot.bmp", (SCREEN_WIDTH - BALL_WIDTH)/2, (SCREEN_HEIGHT - BALL_HEIGHT)/2);
+		ball = new Ball("Resources/ball.bmp", (SCREEN_WIDTH - BALL_WIDTH)/2, (SCREEN_HEIGHT - BALL_HEIGHT)/2);
 		background = new Background("Resources/gameBackground.bmp");
 
 		return true;
